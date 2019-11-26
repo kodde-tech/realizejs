@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from '../../prop_types';
 import { mixin } from '../../utils/decorators';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import CssClassMixin from '../../mixins/css_class_mixin';
 
@@ -50,7 +50,7 @@ export default class Flash extends Component {
 
   renderFlash () {
     return (
-      <div className={this.className()} ref={ref => { this.flash = ref; }}>
+      <div className={this.className()}>
         <FlashContent {...this.props} />
         {this.props.canDismiss ? <FlashDismiss {...this.props} onClick={this.dismiss} />: ''}
       </div>
@@ -58,17 +58,7 @@ export default class Flash extends Component {
   }
 
   render () {
-    return (
-      <ReactCSSTransitionGroup
-        transitionName="dismiss"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
-        {this.state.dismissed ? '' : this.renderFlash()}
-      </ReactCSSTransitionGroup>
-    );
+    return this.state.dismissed ? '' : this.renderFlash();
   }
 
   dismiss = () => {
