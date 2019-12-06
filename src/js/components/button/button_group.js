@@ -9,28 +9,28 @@ import Button from './button';
 @mixin(CssClassMixin)
 export default class ButtonGroup extends Component {
   static propTypes = {
-    buttons: PropTypes.array
+    buttons: PropTypes.array,
   };
 
   static defaultProps = {
     themeClassKey: 'button.group',
-    buttons: []
+    buttons: [],
   };
 
-  renderButtons () {
+  renderButtons() {
     const buttonsProps = this.props.buttons;
     let buttons = [];
 
-    for(let i = 0; i < buttonsProps.length; i++) {
+    for (let i = 0; i < buttonsProps.length; i++) {
       let buttonProps = buttonsProps[i];
 
-      buttons.push(<Button {...buttonProps} key={"button_" + i} />);
+      buttons.push(<Button {...buttonProps} key={'button_' + i}/>);
     }
 
     return buttons;
   }
 
-  render () {
+  render() {
     return (
       <div className={this.className()}>
         {this.renderButtons()}
