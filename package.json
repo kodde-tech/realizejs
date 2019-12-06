@@ -13,7 +13,7 @@
   "homepage": "http://www.wkm.com.br",
   "repository": {
     "type": "git",
-    "url": "https://github.com/working-minds/realizejs.git"
+    "url": "https://github.com/kodde-tech/realizejs"
   },
   "main": "src/index.js",
   "browser": "dist/build/realizejs.js",
